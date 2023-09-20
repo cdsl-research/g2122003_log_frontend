@@ -18,7 +18,7 @@ function generate(element) {
 }
 
 export default function Chart() {
-    const  dense  = React.useState(false);
+    const dense = React.useState(false);
 
     return (
         <React.Fragment>
