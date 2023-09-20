@@ -18,14 +18,8 @@ function generate(element) {
     );
 }
 
-const Demo = styled('div')(({ theme }) => ({
-    backgroundColor: theme.palette.background.paper,
-}));
-
 export default function Chart() {
-    const theme = useTheme();
-    const [dense, setDense] = React.useState(false);
-    const [secondary, setSecondary] = React.useState(false);
+    const  dense  = React.useState(false);
 
     return (
         <React.Fragment>
