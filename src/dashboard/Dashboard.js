@@ -16,7 +16,13 @@ import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { mainListItems } from './listItems';
-import Chart from './Chart';
+import Top from '../pages/Top_page';
+import Register from '../pages/Register';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+} from "react-router-dom";
 
 function Copyright(props) {
     return (
@@ -161,7 +167,12 @@ function DashboardContent() {
                                         height: 700,
                                     }}
                                 >
-                                    <Chart />
+                                    <Router>
+                                        <Routes>
+                                            <Route path="/" element={<Top />} />
+                                            <Route path="/register" element={<Register />} />
+                                        </Routes>
+                                    </Router>
                                 </Paper>
                             </Grid>
                             

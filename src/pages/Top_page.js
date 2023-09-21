@@ -7,7 +7,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import FolderIcon from '@mui/icons-material/Folder';
 import TextField from '@mui/material/TextField';
-import Title from './Title';
+import Title from '../dashboard/Title';
 
 function generate(element) {
     return [0, 1, 2].map((value) =>
@@ -17,7 +17,7 @@ function generate(element) {
     );
 }
 
-export default function Chart() {
+export default function Top_page() {
     const dense = React.useState(false);
 
     return (
@@ -38,8 +38,6 @@ export default function Chart() {
                     </ListItem>,
                 )}
             </List>
-            <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-            <Button variant="contained">Contained</Button>
             
         </React.Fragment>
     );
