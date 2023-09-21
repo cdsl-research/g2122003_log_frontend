@@ -3,17 +3,17 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'; 
 
 export const mainListItems = (
     <React.Fragment>
-        <ListItemButton>
+        <ListItemButton to="/">
             <ListItemIcon>
                 <DashboardIcon />
             </ListItemIcon>
             <ListItemText primary="トップページ" />
         </ListItemButton>
-        <ListItemButton>
+        <ListItemButton to="/register">
             <ListItemIcon>
                 <ShoppingCartIcon />
             </ListItemIcon>
