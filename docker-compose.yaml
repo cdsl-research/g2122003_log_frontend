@@ -1,9 +1,24 @@
 version: "3.9"
 services:
   front:
+    container_name: React
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+      - REACT_APP_API_URL=localhost:30000
     tty: true
     ports:
       - "80:80"
+  
+  testapi:
+    container_name: FastAPI
+    build:
+      context: ./testAPI
+      dockerfile: Dockerfile
+    tty: true
+    volumes:
+      - ./testAPI/app:/app
+    ports:
+      - "30000:30000"
+

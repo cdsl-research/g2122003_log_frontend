@@ -1,24 +1,30 @@
 import * as React from 'react';
+import { useState, useEffect } from "react";
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import FolderIcon from '@mui/icons-material/Folder';
-import TextField from '@mui/material/TextField';
 import Title from '../dashboard/Title';
+import { Link } from 'react-router-dom';
 
-function generate(element) {
-    return [0, 1, 2].map((value) =>
-        React.cloneElement(element, {
-            key: value,
-        }),
-    );
+const FetchData = () => {
+    const [data, setData] = useState(undefined);
+
+    useEffect(() => {
+        console.log(process.env.REACT_APP_API_URL + "/books");
+        fetch("http://" + process.env.REACT_APP_API_URL + "/books")
+            .then((res) => res.json())
+            .then((json) => setData(json))
+            .catch(() => alert("error"));
+    }, []);
+
+    console.log(data);
+    return data === undefined ? [] : data.books;
 }
-
 export default function Top_page() {
-    const dense = React.useState(false);
+    //const dense = React.useState(false);
 
     return (
         <React.Fragment>
@@ -26,19 +32,18 @@ export default function Top_page() {
             <Typography variant="subtitle1" gutterBottom>
                 レビュー一覧
             </Typography>
-            <List dense={dense}>
-                {generate(
-                    <ListItem>
-                        <ListItemIcon>
-                            <FolderIcon />
-                        </ListItemIcon>
-                        <ListItemText
-                            primary="Single-line item"
-                        />
-                    </ListItem>,
+            <List>
+                {FetchData().map((value) =>
+                    <Link to={"/book/" + value.isbn} key={value.isbn}>
+                        <ListItem>
+                            <ListItemIcon>
+                                <FolderIcon />
+                            </ListItemIcon>
+                                <ListItemText primary={value.title}/>
+                        </ListItem>
+                    </Link>
                 )}
             </List>
-            
         </React.Fragment>
     );
 }

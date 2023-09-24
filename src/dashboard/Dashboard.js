@@ -18,6 +18,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { mainListItems } from './listItems';
 import Top from '../pages/Top_page';
 import Register from '../pages/Register';
+import Book from '../pages/Book_page';
 import {
     BrowserRouter as Router,
     Routes,
@@ -120,7 +121,7 @@ function DashboardContent() {
                             noWrap
                             sx={{ flexGrow: 1 }}
                         >
-                            Dashboard
+                            レビューサイト
                         </Typography>
                     </Toolbar>
                 </AppBar>
@@ -164,13 +165,13 @@ function DashboardContent() {
                                         p: 2,
                                         display: 'flex',
                                         flexDirection: 'column',
-                                        height: 700,
                                     }}
                                 >
                                     <Router>
                                         <Routes>
                                             <Route path="/" element={<Top />} />
                                             <Route path="/register" element={<Register />} />
+                                            <Route path="/book/:id" element={<Book />} />
                                         </Routes>
                                     </Router>
                                 </Paper>
