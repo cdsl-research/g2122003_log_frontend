@@ -1,5 +1,8 @@
 # 書籍レビューサイト　フロントエンドのリポジトリ
 
+バックエンド
+https://github.com/cdsl-research/g2122003_log
+
 Reactにより作成されており、Dockerfileでコンテナ化されます。
 
 # ローカルでの実行方法
