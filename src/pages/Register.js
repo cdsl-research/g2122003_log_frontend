@@ -26,7 +26,7 @@ export default function Register() {
                                 setFirst(e.target.value)
                             }}
                         />
-                        <FormControlLabel control={<Checkbox onChange={() => setchecked(!checked)} />} label="Checkbox に表示するラベル" />
+                        <FormControlLabel control={<Checkbox onChange={() => setchecked(!checked)} />} label="1巻ならチェック" />
                         {checked ? 
                             <TextField
                                 required 
