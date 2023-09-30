@@ -32,11 +32,11 @@ export default function Book_page() {
             {(() => {
                 let bookdata = FetchNovel();
                 console.log(bookdata)
-                if (bookdata != ""){
-                    if(bookdata.detail != "Not Found"){
+                if (bookdata !== ""){
+                    if(bookdata.detail !== "Not Found"){
                         console.log(bookdata.novel.isbn)
                         console.log(parseInt({ id }.id))
-                        if (bookdata.novel.isbn == parseInt({ id }.id)) {
+                        if (bookdata.novel.isbn === parseInt({ id }.id)) {
                             return (
                                 <>
                                     <Typography variant="h3" gutterBottom>
