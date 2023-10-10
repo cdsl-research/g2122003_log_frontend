@@ -73,6 +73,10 @@ export default function Book_page() {
                                         size="large"
                                         onClick={() => {
                                             console.log(review);
+                                            //fetch("http://" + process.env.REACT_APP_API_URL + "/review")
+                                            //    .then((res) => res.json())
+                                            //    .then((json) => setData(json))
+                                            //    .catch(() => alert("error"));
                                         }}>
                                         投稿
                                     </Button>

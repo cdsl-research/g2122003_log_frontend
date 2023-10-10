@@ -77,6 +77,10 @@ export default function Register() {
                             size="large"
                             onClick={() => {
                                 console.log(first, second, checked);
+                                //</Stack>fetch("http://" + process.env.REACT_APP_API_URL + "/register")
+                                //</FormGroup>    .then((res) => res.json())
+                                //</Container>    .then((json) => setData(json))
+                                //    .catch(() => alert("error"));
                             }}>
                             作成
                         </Button>
