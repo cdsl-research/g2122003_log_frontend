@@ -10,8 +10,8 @@ export default function Register() {
     const [data, setData] = useState(undefined);
     useEffect(() => {
         if (first.length === 13) {
-            console.log("https://www.googleapis.com/books/v1/volumes?q=isbn=" + first);
-            fetch("https://www.googleapis.com/books/v1/volumes?q=isbn=" + first)
+            console.log("https://www.googleapis.com/books/v1/volumes?q=isbn:" + first);
+            fetch("https://www.googleapis.com/books/v1/volumes?q=isbn:" + first)
                 .then((res) => res.json())
                 .then((json) => setData(json))
                 .catch(() => alert("error"));
@@ -47,9 +47,6 @@ export default function Register() {
                                     setSecond(e.target.value)
                                 }}
                             />}
-                        <Typography variant="subtitle1" gutterBottom>
-                            ※プレビューでは別の巻が表示されることがあります。シリーズが合っているかの確認程度にご利用ください。
-                        </Typography>
                         {
                         data === undefined || data.items=== undefined ? "" :
                         <>
