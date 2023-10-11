@@ -5,8 +5,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-      - REACT_APP_API_URL=localhost:30000
     tty: true
     ports:
       - "80:80"
