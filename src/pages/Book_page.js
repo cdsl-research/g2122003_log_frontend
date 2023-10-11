@@ -6,17 +6,18 @@ import Title from '../dashboard/Title';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider'; 
 import { Button, TextField, List, ListItem, ListItemText} from '@mui/material';
+import { env } from '../env';
 
 function FetchNovel() {
     const [data, setData] = useState(undefined);
     const { id } = useParams();
 
     useEffect(() => {
-        console.log("http://" + process.env.REACT_APP_API_URL + "/id" + { id }.id);
-        fetch("http://" + process.env.REACT_APP_API_URL + "/id" + { id }.id)
+        console.log("http://" + env.REACT_APP_API_URL + "/id" + { id }.id);
+        fetch("http://" + env.REACT_APP_API_URL + "/id" + { id }.id)
             .then((res) => res.json())
             .then((json) => setData(json))
-            .catch(() => alert("error access" + process.env.REACT_APP_API_URL + "/id"));
+            .catch(() => alert("error access" + env.REACT_APP_API_URL + "/id"));
     }, []);
 
 
