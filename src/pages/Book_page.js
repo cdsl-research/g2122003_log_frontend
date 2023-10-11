@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Title from '../dashboard/Title';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider'; 
-import Container from '@mui/material/Container';
+import { Button, TextField, List, ListItem, ListItemText} from '@mui/material';
 
 function FetchNovel() {
     const [data, setData] = useState(undefined);
@@ -16,7 +16,7 @@ function FetchNovel() {
         fetch("http://" + process.env.REACT_APP_API_URL + "/id" + { id }.id)
             .then((res) => res.json())
             .then((json) => setData(json))
-            .catch(() => alert("error"));
+            .catch(() => alert("error access" + process.env.REACT_APP_API_URL + "/id"));
     }, []);
 
 
@@ -24,7 +24,7 @@ function FetchNovel() {
 };
 
 export default function Book_page() {
-
+    const [review, setReview] = useState("")
     const { id } = useParams();
     return (
         <React.Fragment>
@@ -32,7 +32,7 @@ export default function Book_page() {
             {(() => {
                 let bookdata = FetchNovel();
                 console.log(bookdata)
-                if (bookdata !== ""){
+                if (bookdata !== "" || bookdata.error){
                     if(bookdata.detail !== "Not Found"){
                         console.log(bookdata.novel.isbn)
                         console.log(parseInt({ id }.id))
@@ -57,14 +57,40 @@ export default function Book_page() {
                                         {bookdata.novel.description}
                                     </Typography>
                                     <Divider />
+                                    <TextField
+                                        id="outlined-textarea"
+                                        label="レビューする"
+                                        placeholder="Placeholder"
+                                        value={review}
+                                        multiline
+                                        onChange={e => {
+                                            setReview(e.target.value)
+                                        }}
+                                    />
+                                    <Button
+                                        color="primary"
+                                        variant="contained"
+                                        size="large"
+                                        onClick={() => {
+                                            console.log(review);
+                                            //fetch("http://" + process.env.REACT_APP_API_URL + "/review")
+                                            //    .then((res) => res.json())
+                                            //    .then((json) => setData(json))
+                                            //    .catch(() => alert("error"));
+                                        }}>
+                                        投稿
+                                    </Button>
+                                    <Divider />
                                     <Typography variant="h4" gutterBottom>
                                         レビュー一覧
                                     </Typography>
-                                    <Container>
-                                        <Typography gutterBottom>
-                                            {bookdata.review[0].comment}
-                                        </Typography>
-                                    </Container>
+                                    <List>
+                                        {bookdata.review.map((value) => 
+                                            <ListItem>
+                                                <ListItemText primary={value.comment}/>
+                                            </ListItem>
+                                        )}
+                                    </List>
                                 </>
                             )
                         } else {

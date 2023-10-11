@@ -54,6 +54,15 @@ def id():
          "review_type":"both",
          "spoiler_alert":0,
          "user_id":10
+      },
+      {
+         "comment":"コメント２",
+         "id":2,
+         "isbn":9784896374599,
+         "post_time":"Thu, 21 Sep 2023 07:17:11 GMT",
+         "review_type":"both",
+         "spoiler_alert":0,
+         "user_id":15
       }
    ]
 }

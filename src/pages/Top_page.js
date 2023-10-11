@@ -7,6 +7,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import FolderIcon from '@mui/icons-material/Folder';
 import Title from '../dashboard/Title';
+import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';
 
 const FetchData = () => {
@@ -17,7 +18,7 @@ const FetchData = () => {
         fetch("http://" + process.env.REACT_APP_API_URL + "/books")
             .then((res) => res.json())
             .then((json) => setData(json))
-            .catch(() => alert("error"));
+            .catch(() => alert("error access" + process.env.REACT_APP_API_URL + "/books"));
     }, []);
 
     console.log(data);
@@ -37,7 +38,17 @@ export default function Top_page() {
                     <Link to={"/book/" + value.isbn} key={value.isbn}>
                         <ListItem>
                             <ListItemIcon>
-                                <FolderIcon />
+                                <Box
+                                    component="img"
+                                    sx={{
+                                        height: 90,
+                                        width: 64,
+                                        maxHeight: { xs: 233, md: 167 },
+                                        maxWidth: { xs: 350, md: 250 },
+                                    }}
+                                    alt="Book image"
+                                    src={value.image}
+                                />
                             </ListItemIcon>
                                 <ListItemText primary={value.title}/>
                         </ListItem>
