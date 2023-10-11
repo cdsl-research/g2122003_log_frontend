@@ -78,6 +78,7 @@ export default function Book_page() {
                                             //    .then((res) => res.json())
                                             //    .then((json) => setData(json))
                                             //    .catch(() => alert("error"));
+                                            //
                                         }}>
                                         投稿
                                     </Button>
