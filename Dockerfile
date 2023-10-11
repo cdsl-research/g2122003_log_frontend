@@ -9,7 +9,6 @@ ENV REACT_APP_API_URL $REACT_APP_API_URL
 COPY . ${APP_HOME}
 RUN yarn install
 RUN yarn build
-RUN npx react-inject-env set
 
 # deploy stage
 FROM nginx:alpine

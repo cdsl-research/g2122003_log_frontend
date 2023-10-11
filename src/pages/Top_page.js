@@ -9,14 +9,13 @@ import FolderIcon from '@mui/icons-material/Folder';
 import Title from '../dashboard/Title';
 import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';
-import { env } from '../env'
 
 const FetchData = () => {
     const [data, setData] = useState(undefined);
 
     useEffect(() => {
-        console.log(env.REACT_APP_API_URL + "/books");
-        fetch("http://" + env.REACT_APP_API_URL + "/books")
+        console.log(process.env.REACT_APP_API_URL + "/books");
+        fetch("http://" + process.env.REACT_APP_API_URL + "/books")
             .then((res) => res.json())
             .then((json) => setData(json))
             .catch(() => alert("error access" + process.env.REACT_APP_API_URL + "/books"));
