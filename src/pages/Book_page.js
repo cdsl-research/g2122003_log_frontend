@@ -16,7 +16,7 @@ function FetchNovel() {
         fetch("http://" + process.env.REACT_APP_API_URL + "/id" + { id }.id)
             .then((res) => res.json())
             .then((json) => setData(json))
-            .catch(() => alert("error"));
+            .catch(() => alert("error access" + process.env.REACT_APP_API_URL + "/id"));
     }, []);
 
 
