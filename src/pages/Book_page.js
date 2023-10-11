@@ -13,8 +13,8 @@ function FetchNovel() {
     const { id } = useParams();
 
     useEffect(() => {
-        console.log("http://" + window.env.REACT_APP_API_URL + "/id" + { id }.id);
-        fetch("http://" + window.env.REACT_APP_API_URL + "/id" + { id }.id)
+        console.log("http://" + env.REACT_APP_API_URL + "/id" + { id }.id);
+        fetch("http://" + env.REACT_APP_API_URL + "/id" + { id }.id)
             .then((res) => res.json())
             .then((json) => setData(json))
             .catch(() => alert("error access" + env.REACT_APP_API_URL + "/id"));

@@ -15,8 +15,8 @@ const FetchData = () => {
     const [data, setData] = useState(undefined);
 
     useEffect(() => {
-        console.log(window.env.REACT_APP_API_URL + "/books");
-        fetch("http://" + window.env.REACT_APP_API_URL + "/books")
+        console.log(env.REACT_APP_API_URL + "/books");
+        fetch("http://" + env.REACT_APP_API_URL + "/books")
             .then((res) => res.json())
             .then((json) => setData(json))
             .catch(() => alert("error access" + process.env.REACT_APP_API_URL + "/books"));
